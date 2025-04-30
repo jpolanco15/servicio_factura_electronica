@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "6183:6183"
+    volumes:
+      - ./app:/app
+    environment:
+      - NODE_ENV=production
+    command: python manage.py runserver 0.0.0.0:6183
