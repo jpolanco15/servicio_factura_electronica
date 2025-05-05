@@ -11,5 +11,9 @@ services:
     volumes:
       - ./app:/app
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=DEV
+      - HACIENDA_USER=cpj-3-102-858756@stag.comprobanteselectronicos.go.cr
+      - HACIENDA_PASSWORD="a//Go!lZNH}@fX0%+#x:"
+      - HACIENDA_CERTIFICATE_PIN=1986
+      - HACIENDA_CERTIFICATE_PATH=/app/certs
     command: python manage.py runserver 0.0.0.0:6183

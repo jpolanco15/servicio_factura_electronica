@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+import os
 
 # Create your views here.
 
@@ -17,8 +19,10 @@ def generar_factura(request):
         try:
             # Usa request.body para obtener el cuerpo de la solicitud
             data = json.loads(request.body.decode('utf-8'))  # Decodifica y analiza el JSON
-            print(data)
-            return JsonResponse({"message": "Data received", "data": data}, status=200)
+            @todo necesito revisar todos los elementos que se tienen que revisar en la factura
+           
+            return JsonResponse({"Message": "Certificate path does exist"}, status=200)   
+            return JsonResponse({"message": "Data received", "hacienda_user": os.listdir(certpath)}, status=200)
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     
